@@ -71,7 +71,7 @@ export class Recipe {
   ebu: number;
   @Column()
   alcohol: number;
-  @Column({ nullable: false, enum: BeerType })
+  @Column({ nullable: false, type: 'enum', enum: BeerType })
   type: BeerType;
 
   @OneToMany(

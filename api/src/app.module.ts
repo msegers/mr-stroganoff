@@ -31,6 +31,7 @@ import { PreparationStep } from './recipe/models/preparation-step';
       database: 'stroganoff',
       entities: [Recipe, Fermentable, Hop, Yeast, Misc, RecipeFermentable, RecipeHop, RecipeYeast, RecipeMisc, PreparationStep],
       synchronize: true,
+      logging: true,
   })],
   controllers: [AppController],
   providers: [AppService],
