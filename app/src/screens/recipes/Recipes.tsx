@@ -3,16 +3,17 @@ import { StyleSheet, View, Button } from "react-native";
 import { SearchBar } from "react-native-elements";
 import { Styles } from "../../static/styles";
 import { FlatList } from "react-native-gesture-handler";
-import { RecipeContext, ContextStatus } from "../../context/recipe/recipe.context";
+import { RecipeContext } from "../../context/recipe/recipe.context";
 import { useDebounce } from "use-debounce";
 import { RecipeListItem } from "./components/RecipeListItem/RecipeListItem";
 import { ScreenNavigationProp } from "../../navigation/AppNavigator";
+import { ContextStatus } from "../../context/status";
 
 type RecipesProps = {
   navigation: ScreenNavigationProp<'Recipes'>;
 }
 
-export function Recipes({navigation}: RecipesProps) {
+export const Recipes = ({navigation}: RecipesProps) => {
   const { recipes, status, search } = useContext(RecipeContext);
   const [searchTerm, setSearch] = useState("");
   const [query] = useDebounce(searchTerm, 450);
@@ -39,7 +40,7 @@ export function Recipes({navigation}: RecipesProps) {
       />
       <Button title="Tijdelijke fermentable knop" onPress={() => {
         console.log('verry mentable');
-        navigation.push('Fermentables')
+        navigation.push('Fermentables');
         }}/>
     </View>
   );
